@@ -24,7 +24,13 @@ $('.del').click(function(){
 function chat(){
 var num = document.getElementById("num").value;
 var num1 = document.getElementById("num1").value;
+var res = document.getElementById("res");
+if (num=='' || num==null){
+  res.innerHTML = "Please Enter Valid Mobile Number."
+}
+else{
 window.open('https://wa.me/'+num1+num);
+}
 }
 
 function change(ele) {

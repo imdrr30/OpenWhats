@@ -111,3 +111,51 @@ body {
   position: relative;
   text-align: center;
 }
+
+.error{
+  color: #444;
+}
+
+@media (prefers-color-scheme: dark){
+body{
+  background-color: black;
+}
+
+#wrapper {
+  background: black;
+}
+.inp{
+  color:white;
+  background-color: black;
+}
+.inpc{
+  color:white;
+  background-color: black;
+}
+.header{
+  color:white;
+}
+
+.key {
+  color:white;
+  border:none;
+  background-color: rgb(36, 36, 36);
+}
+.key span {
+  color:white;
+}
+.del {
+  color:white;
+  border:none;
+  background-color: rgb(36, 36, 36);
+}
+.key.nb{
+  background-color: black;
+}
+.chat {
+  color:white;
+  border: none;
+}
+
+
+}
