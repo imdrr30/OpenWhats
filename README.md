@@ -1,0 +1,2 @@
+# OpenWhats
+Easy Whatsapp Openner
