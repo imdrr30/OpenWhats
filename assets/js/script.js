@@ -12,6 +12,7 @@ $('.key').click(function(){
   var currentValue = $('.inp').val();
   var valueToAppend = $(this).attr('rel');
   $('.inp').val(currentValue + valueToAppend);
+  verf();
 });
 
 
@@ -19,6 +20,7 @@ $('.del').click(function(){
     var currentValue = $('.inp').val();
     var newValue = currentValue.substring(0, currentValue.length - 1);
     $('.inp').val(newValue);
+    verf();
 });
  
 function chat(){
@@ -60,3 +62,62 @@ function ipLookUp() {
   })
 }
 ipLookUp()
+
+
+function verf(){
+  var a = document.getElementById("num");
+  if (a.value!=''){
+    document.getElementById("del").removeAttribute("hidden");
+  }
+  else{
+    document.getElementById("del").setAttribute("hidden","hidden");
+  }
+}
+
+function blockSpecialChar(e) {            
+  var k = e.charCode? e.charCode : e.keyCode;
+  return ( k==13 || (k >= 48 && k <= 57) );
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+      begin = dc.indexOf(prefix);
+      if (begin != 0) return null;
+  }
+  else
+  {
+      begin += 2;
+      var end = document.cookie.indexOf(";", begin);
+      if (end == -1) {
+      end = dc.length;
+      }
+  }
+  return decodeURI(dc.substring(begin + prefix.length, end));
+}
+
+
+var c = getCookie('tcshown');
+var cc = 1;
+if(c!=null){
+  cc = 0;
+}
+
+
+if(cc){
+  var tc = document.getElementById("tcpopup");
+  tc.innerHTML = '<style id="wrpp">#wrapper{ -webkit-filter : blur(2px); -moz-filter: blur(2px); -o-filter: blur(2px); -ms-filter: blur(2px);filter: blur(2px); }</style><div id="box" class="du-dialog dlg--open"><div class="dlg-wrapper" tabindex="0"><div class="dlg-header">Privacy</div><div class="dlg-content">At OpenWhats, one of our main priorities is the privacy of our visitors. We do not collect any information of our visitors and numbers entered in OpenWhats.</div><div class="dlg-actions"><button id="okay" onclick="ctc()" class="dlg-action ok-action" tabindex="1">Agree</button></div></div></div>';
+}
+
+
+function ctc(){
+  document.cookie = "tcshown=yes";
+  var div2 = document.getElementById("box");
+  div2.parentNode.removeChild(div2);
+  var div3 = document.getElementById("wrpp");
+  div3.parentNode.removeChild(div3);
+
+}
+
